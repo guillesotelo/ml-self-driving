@@ -6,7 +6,7 @@ class Car {
         this.height = height;
 
         this.speed = 0;
-        this.acceleration = 0.2;
+        this.acceleration = 0.1;
         this.maxSpeed = maxSpeed;
         this.friction = 0.05;
         this.angle = 0;
@@ -48,9 +48,7 @@ class Car {
         }
         if (this.sensor) {
             this.sensor.update(roadBorders, traffic);
-            const offsets = this.sensor.readings.map(
-                s => s == null ? 0 : 1 - s.offset
-            );
+            const offsets = this.sensor.readings.map( s => s == null ? 0 : 1 - s.offset);
             const outputs = NeuralNetwork.feedForward(offsets, this.brain);
 
             if (this.useBrain) {

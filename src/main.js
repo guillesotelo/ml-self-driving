@@ -25,8 +25,8 @@ const traffic = [];
 
 const feedTraffic = (max) => {
     let lastY = 0
-    for(let i=0; i<max; i++){
-        const randY = lastY + Math.floor(Math.random() * -700)
+    for (let i = 0; i < max; i++) {
+        const randY = lastY + Math.floor(Math.random() * -700) * 0.7
         const randX = Math.floor(Math.random() * 3)
         traffic.push(
             new Car(road.getLaneCenter(randX), randY, 30, 50, "DUMMY", 2, getRandomColor())
@@ -39,7 +39,7 @@ feedTraffic(50)
 animate();
 
 function save() {
-    localStorage.setItem("bestBrain",JSON.stringify(bestCar.brain));
+    localStorage.setItem("bestBrain", JSON.stringify(bestCar.brain));
 }
 
 function discard() {
@@ -61,10 +61,7 @@ function animate(time) {
     for (let i = 0; i < cars.length; i++) {
         cars[i].update(road.borders, traffic);
     }
-    bestCar = cars.find(
-        c => c.y == Math.min(
-            ...cars.map(c => c.y)
-        ));
+    bestCar = cars.find(c => c.y == Math.min(...cars.map(c => c.y)));
 
     carCanvas.height = window.innerHeight;
     networkCanvas.height = window.innerHeight;

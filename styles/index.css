@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background: darkgray;
+    background: rgb(110, 110, 110);
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -27,7 +27,7 @@ button:hover {
 
 
 #carCanvas {
-    background-color: lightgray;
+    background-color: rgb(81, 81, 81);
 }
 
 #networkCanvas {
