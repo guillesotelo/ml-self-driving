@@ -16,7 +16,7 @@ if (localStorage.getItem("bestBrain")) {
         cars[i].brain = JSON.parse(
             localStorage.getItem("bestBrain"));
         if (i != 0) {
-            NeuralNetwork.mutate(cars[i].brain, 0.1);
+            NeuralNetwork.mutate(cars[i].brain, 0.01);
         }
     }
 }
@@ -29,12 +29,12 @@ const feedTraffic = (max) => {
         const randY = lastY + Math.floor(Math.random() * -700) * 0.7
         const randX = Math.floor(Math.random() * 3)
         traffic.push(
-            new Car(road.getLaneCenter(randX), randY, 30, 50, "DUMMY", 2, getRandomColor())
+            new Car(road.getLaneCenter(randX), randY, 30, 55, "DUMMY", 2, getRandomColor())
         )
         lastY = randY
     }
 }
-feedTraffic(50)
+feedTraffic(500)
 
 animate();
 
@@ -49,7 +49,7 @@ function discard() {
 function generateCars(N) {
     const cars = [];
     for (let i = 1; i <= N; i++) {
-        cars.push(new Car(road.getLaneCenter(1), 100, 30, 50, "AI"));
+        cars.push(new Car(road.getLaneCenter(1), 100, 30, 55, "AI"));
     }
     return cars;
 }
@@ -73,7 +73,7 @@ function animate(time) {
     for (let i = 0; i < traffic.length; i++) {
         traffic[i].draw(carCtx);
     }
-    carCtx.globalAlpha = 0.2;
+    carCtx.globalAlpha = 0.1;
     for (let i = 0; i < cars.length; i++) {
         cars[i].draw(carCtx);
     }

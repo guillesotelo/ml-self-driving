@@ -1,35 +1,47 @@
 body {
     margin: 0;
-    background: rgb(110, 110, 110);
+    background: rgb(82, 82, 82);
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 2rem;
 }
 
 #verticalButtons {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    color: lightgray;
+    font-size: 1.5rem;
+    box-shadow: .5rem 1rem 2rem rgba(0, 0, 0, 0.215);
+    background-color: rgb(53, 53, 53);
 }
 
 button {
     border: none;
     border-radius: 5px;
-    padding: 5px 5px 7px 5px;
-    margin: 2px;
+    padding: .5rem;
+    margin: .2rem;
     cursor: pointer;
     transition: .3s;
+    font-size: 1rem;
 }
 
 button:hover {
-    opacity: .8;
+    opacity: .7;
 }
 
 
 #carCanvas {
-    background-color: rgb(81, 81, 81);
+    background-color: rgb(56, 59, 68);
 }
 
 #networkCanvas {
     background-color: rgb(53, 53, 53);
+    height: 80vh;
+    border-radius: .5rem;
+    box-shadow: .5rem 1rem 2rem rgba(0, 0, 0, 0.215);
 }
